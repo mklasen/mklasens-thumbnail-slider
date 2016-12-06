@@ -1,0 +1,38 @@
+.mk-thumbnail-slider {
+  overflow: hidden;
+  margin: 0 0 1em;
+}
+
+.mk-thumbnail-slider > ul > span.mk-thumb-nav {
+  color: #FFF;
+  padding: 5px;
+  cursor: pointer;
+  position: absolute;
+  text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.mk-thumbnail-slider > ul > span.mk-thumb-nav.prev {
+  left: 0;
+}
+
+.mk-thumbnail-slider > ul > span.mk-thumb-nav.next {
+  right: 0;
+}
+
+.woocommerce .products .mk-thumbnail-slider > ul {
+  display: flex;
+  overflow: hidden;
+  margin: 0;
+  align-items: center;
+}
+
+.mk-thumbnail-slider > ul > li {
+  min-width: 100%;
+  /*transition: 0.2s all;*/
+  margin-left: 0;
+}
+
+.woocommerce ul.products li.product .mk-thumbnail-slider > ul > li img {
+  width: 100%;
+  margin: 0;
+}
