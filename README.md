@@ -1,0 +1,1 @@
+# mklasens-thumbnail-slider
