@@ -65,11 +65,11 @@ function mk_product_thumbnails() {
 
 	$output .= '<div class="mk-thumbnail-slider">';
 		$output .= '<ul>';
-			$output .= '<span class="mk-thumb-nav prev">&laquo;</span>';
+			$output .= '<span class="mk-thumb-nav prev"><</span>';
 			foreach($merged as $id) {
 				$output .= '<li data-id="'.$id.'">'.wp_get_attachment_image($id, $size).'</li>';
 			}
-		$output .= '<span class="mk-thumb-nav next">&raquo;</span>';
+		$output .= '<span class="mk-thumb-nav next">></span>';
 			$output .= '</ul>';
 	$output .= '</div>';
 
