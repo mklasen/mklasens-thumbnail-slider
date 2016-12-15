@@ -9,38 +9,23 @@ jQuery(document).ready(function($) {
     firstSlide = $('ul li', slider).first()
     firstSlide.addClass('active')
 
-    $('span.prev', slider).on('click', function(e) {
+    $('span.mk-thumb-nav', slider).on('click', function(e) {
       e.preventDefault()
-      allElems = $('li', $(e.target).parent());
-      prevElem = $('li.active', $(e.target).parent()).prev();
+      action = $(this).attr('data-action')
+      allElems = $('li', $(this).parent());
 
-      if (prevElem.is('li')) {
+      if ($('li.active', $(this).parent())[action]().is('li')) {
+        nextElem = $('li.active', $(this).parent())[action]();
         allElems.removeClass('active');
-        allElems.css('margin-left', 0);
-        prevElem.addClass('active');
+        nextElem.addClass('active')
 
-        var newMargin = $(prevElem).offset().left - $(prevElem).parent().offset().left - $(prevElem).parent().scrollLeft()
-        $('li', $(e.target).parent()).first().css('margin-left', -Math.abs(newMargin));
+        newElem = $('ul li.active', slider)
+
+        margin = $(newElem).offset().left - $(newElem).parent().offset().left - $(newElem).parent().scrollLeft() - parseFloat($('ul li', slider).first().css('margin-left'))
+
+        marginResult = -Math.abs(margin)
+        $('ul li', slider).first().css('margin-left', marginResult)
       }
-    });
-
-    $('span.next', slider).on('click', function(e) {
-      e.preventDefault()
-      allElems = $('li', $(e.target).parent());
-      curElem = $('li.active', $(e.target).parent())
-      nextElem = $('li.active', $(e.target).parent()).next();
-
-      if (nextElem.is('li')) {
-        // Only do somthing when it's actually about a LI
-        allElems.removeClass('active');
-        allElems.css('margin-left', 0);
-        nextElem.addClass('active');
-
-        var newMargin = $(nextElem).offset().left - $(nextElem).parent().offset().left - $(nextElem).parent().scrollLeft()
-        $('li', $(e.target).parent()).first().css('margin-left', -Math.abs(newMargin));
-      }
-
-
     });
   })
 });
